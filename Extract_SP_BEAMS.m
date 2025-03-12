@@ -54,6 +54,7 @@ close all;
 % B1_Cheeca_26June2024
 % run([cd, 'C:\Users\bwerb\Documents\GitHub\BEAMS\testdata'])
 
+%% Meta information
 % Filepaths and save locations
 % Base directory  
 base_dir = 'G:\.shortcut-targets-by-id\18QB8oWsbcr1m5sL5U67c2irRD1encSYU\Deployments_2024\B1_Cheeca_26June2024';
@@ -67,8 +68,8 @@ mat_name = fullfile(base_dir, 'B1_Cheeca_26June2024B1_BEAMS.mat');
 
 % SP Extract info
 use_def_Sal = false; % defaulting to false
-startdate = datetime(2024,6,6,TimeZone="UTC");
-enddate = datetime(2024,6,30,TimeZone="UTC");
+startdate = datetime(2024,6,26,14,30,0,TimeZone="UTC");
+enddate = datetime(2024,7,2,14,0,0,TimeZone="UTC");
 daterange = [datenum(startdate) datenum(enddate)];
 % daterange = SPraw.SDN(1):SPraw.SDN(end); % Default for now, change later!
 
@@ -82,7 +83,7 @@ Q = 0.8:0.1:1.2; % Photosynthetic quotient for calc_TA_gradient
 Sal_est = 36; 
 
 % Aquadopp info
-hasAquadopp = true;
+hasAquadopp = true; % Aquadopp data included? True or False
 delimit = ';';
 min2avg = 15; % minutes to average for aquapdopp
 
@@ -90,7 +91,7 @@ min2avg = 15; % minutes to average for aquapdopp
 pumpz = [0.79, 0.33]; % Where can this data be found in meta?
 ipumps = [1 2]; % pumps to use to calculate NEP & NEC for Mcgillis 2011
 
-% U0range = [0.002 0.02]; % velocity range to calculate NEP/NEC
+% % U0range = [0.002 0.02]; % velocity range to calculate NEP/NEC
 %% Extract and parse SeapHOx data (ARM board)
 disp('Start Extracting SeapHOx data...');
 GetMfetData(SPfilepath);
